@@ -16,7 +16,12 @@ Commits folgen dem [Conventional Commits](https://www.conventionalcommits.org/en
 4. ERD in pgAdmin erstellt und in `docs/erd.png` gespeichert
 5. `.env` mit DB-Informationen angelegt (und `.env.example` für repo)
 
-## Datenbankverbindung - *16.3.*
+### Datenbankverbindung - *16.3.*
 
 1. `src/db.php` mit PDO-Verbindung erstellt
 2. `.env` wird zur Laufzeit geladen
+
+### Sign in & Register - *16.3.*
+
+1. `public/index.php` - Login-Seite mit Session-Check
+2. `public/register.php` - Register-Seite mit Session-Check
