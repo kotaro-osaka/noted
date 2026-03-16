@@ -15,3 +15,8 @@ Commits folgen dem [Conventional Commits](https://www.conventionalcommits.org/en
 3. Datenbank `noted` mit `schema.sql` erstellt
 4. ERD in pgAdmin erstellt und in `docs/erd.png` gespeichert
 5. `.env` mit DB-Informationen angelegt (und `.env.example` für repo)
+
+## Datenbankverbindung - *16.3.*
+
+1. `src/db.php` mit PDO-Verbindung erstellt
+2. `.env` wird zur Laufzeit geladen
