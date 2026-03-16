@@ -25,3 +25,9 @@ Commits folgen dem [Conventional Commits](https://www.conventionalcommits.org/en
 
 1. `public/index.php` - Login-Seite mit Session-Check
 2. `public/register.php` - Register-Seite mit Session-Check
+
+### Auth - *16.3.*
+
+1. `src/auth.php` - Login und Register Funktionen mit Argon2 Hashing
+2. `public/auth/login.php` - Login Endpoint
+3. `public/auth/register.php` - Register Endpoint
