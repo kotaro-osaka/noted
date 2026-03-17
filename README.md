@@ -13,8 +13,9 @@ Commits folgen dem [Conventional Commits](https://www.conventionalcommits.org/en
 1. Projektstruktur angelegt
 2. PostgreSQL via Homebrew installiert
 3. Datenbank `noted` mit `schema.sql` erstellt
-4. ERD in pgAdmin erstellt und in `docs/erd.png` gespeichert
-5. `.env` mit DB-Informationen angelegt (und `.env.example` für repo)
+4. Sequence-Rechte für `noted_user` vergeben
+5. ERD in pgAdmin erstellt und in `docs/erd.png` gespeichert
+6. `.env` mit DB-Informationen angelegt (und `.env.example` für repo)
 
 ### Datenbankverbindung - *16.3.*
 

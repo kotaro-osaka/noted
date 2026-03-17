@@ -1,4 +1,9 @@
--- USERS
+-- Create app user
+CREATE USER noted_user;
+GRANT CONNECT ON DATABASE noted TO noted_user;
+-- Password set manually via `ALTER USER noted_user WITH PASSWORD '...';`
+
+-- Users
 CREATE TABLE users (
 	id SERIAL PRIMARY KEY,
 	email VARCHAR(255) NOT NULL UNIQUE,
@@ -37,3 +42,6 @@ CREATE TABLE note_tags (
 	tag_id INTEGER NOT NULL REFERENCES tags(id) ON DELETE CASCADE,
 	PRIMARY KEY (note_id, tag_id)
 );
+
+-- Grant sequence permissions to noted_user
+GRANT USAGE, SELECT, UPDATE ON ALL SEQUENCES IN SCHEMA public TO noted_user;
