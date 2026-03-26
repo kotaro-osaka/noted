@@ -1,0 +1,23 @@
+:root {
+	--background: #fff;
+	--foreground: #0A0A0A;
+}
+
+body {
+	margin: 0;
+	background-color: var(--background);
+}
+
+h1 {
+	font-family: sans-serif;
+	font-size: 48px;
+	font-weight: 800;
+	line-height: 48%;
+	letter-spacing: -1.2%;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}

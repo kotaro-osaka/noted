@@ -1,0 +1,51 @@
+<?php
+session_start();
+require_once __DIR__ . '/../src/db.php';
+
+// Redirect if not logged in
+if (!isset($_SESSION['user_id'])) {
+	header('Location: /');
+	exit;
+}
+
+$note_id = $_GET['id'] ?? null; // Null = New note
+$note = null;
+
+if ($note_id) {
+	$stmt = $pdo->prepare('SELECT * FROM notes WHERE id = ? AND user_id = ?');
+	$stmt->execute([$note_id, $_SESSION['user_id']]);
+	$note = $stmt->fetch();
+
+	// Note not found or doesn't belong to user
+	if (!$note) {
+		header('Location: /app.php');
+		exit;
+	}
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>noted - <?= $note ? htmlspecialchars($note['title']) : 'New Note' ?></title>
+	<link rel="stylesheet" href="/css/index.css">
+</head>
+
+<body>
+	<header>
+		<a href="/app.php">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left-icon lucide-chevron-left">
+				<path d="m15 18-6-6 6-6" />
+			</svg>
+		</a>
+	</header>
+	<main>
+		<input type="text" id="title" placeholder="Title" value="<?= $note ? htmlspecialchars($note['title']) : '' ?>">
+		<textarea id="content" placeholder="Start writing..."><?= $note ? htmlspecialchars($note['content']) : '' ?></textarea>
+	</main>
+	<script src="/js/editor.js"></script>
+</body>
+
+</html>

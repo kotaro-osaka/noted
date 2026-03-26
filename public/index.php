@@ -2,19 +2,21 @@
 require_once __DIR__ . '/../src/db.php';
 
 session_start(); // Start or resume session via session id
-if (isset($_SESSION['user_id'])) { // Check if global array's user_id is set
-	header('Location: /app.php'); // Reroute user (=> Auto log in)
-	exit; // Stop PHP rendering
-}
+// if (isset($_SESSION['user_id'])) { // Check if global array's user_id is set
+// 	header('Location: /app.php'); // Reroute user (=> Auto log in)
+// 	exit; // Stop PHP rendering
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>noted - Sign in</title>
-	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/index.css">
 </head>
+
 <body>
 	<main class="auth-container">
 		<h1>Sign in</h1>
@@ -26,4 +28,5 @@ if (isset($_SESSION['user_id'])) { // Check if global array's user_id is set
 		</form>
 	</main>
 </body>
+
 </html>

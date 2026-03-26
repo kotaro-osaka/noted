@@ -39,3 +39,9 @@ Commits folgen dem [Conventional Commits](https://www.conventionalcommits.org/en
 2. Schema angepasst: ENUMs durch CHECK Constraints ersetzt, FTS5 für Volltextsuche
 3. `db.php` angepasst: SQLite DSN, PRAGMA für Fremdschlüssel aktiviert
 4. `database/noted.db` erstellt und Schema ausgeführt
+
+### Editor - *26.3.*
+
+1. `public/editor.php` - Editor-Seite mit Session-Check und Notiz-Laden
+2. `public/js/editor.js` - Auto-Save mit Debounce (1s), Save vor Navigation
+3. `public/api/notes/save.php` - Save-Endpoint, erstellt bzw. aktualisiert Notiz
