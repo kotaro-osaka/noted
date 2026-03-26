@@ -17,7 +17,7 @@ if (empty($email) || empty($password)) {
 }
 
 if (login($email, $password)) {
-	header('Location: /app.php'); // Route to app
+	header('Location: /notes.php'); // Route to notes page
 	exit; // Stop php rendering
 }
 

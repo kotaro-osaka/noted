@@ -34,7 +34,7 @@ document.querySelector('header a').addEventListener('click', async (e) => {
 	e.preventDefault(); // Prevent instant default navigation
 	clearTimeout(saveTimer);
 	await save();
-	window.location.href = '/app.php';
+	window.location.href = '/notes.php';
 });
 
 titleInput.addEventListener('input', scheduleSave);

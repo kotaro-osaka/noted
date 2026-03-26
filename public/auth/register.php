@@ -18,7 +18,7 @@ if (empty($email) || empty($password)) {
 
 if (register($email, $password)) {
 	login($email, $password); // Auto login after registration
-	header('Location: /app.php'); // Route to app
+	header('Location: /notes.php'); // Route to notes page
 	exit; // Stop php rendering
 }
 

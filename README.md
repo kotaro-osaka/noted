@@ -45,3 +45,8 @@ Commits folgen dem [Conventional Commits](https://www.conventionalcommits.org/en
 1. `public/editor.php` - Editor-Seite mit Session-Check und Notiz-Laden
 2. `public/js/editor.js` - Auto-Save mit Debounce (1s), Save vor Navigation
 3. `public/api/notes/save.php` - Save-Endpoint, erstellt bzw. aktualisiert Notiz
+
+### Notes View - *26.3.*
+
+1. `public/notes.php` Notes Grid mit Session-Check, dynamische Notizanzahl
+2. `public/css/index.css` - Basic-Layout für Grid, Header, Footer

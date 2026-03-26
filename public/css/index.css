@@ -1,23 +1,109 @@
 :root {
-	--background: #fff;
-	--foreground: #0A0A0A;
+    --background: #fff;
+    --foreground: #0a0a0a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-	margin: 0;
-	background-color: var(--background);
+    background: var(--background);
+    color: var(--foreground);
+    font-family: sans-serif;
+    min-height: 100vh;
 }
 
 h1 {
-	font-family: sans-serif;
-	font-size: 48px;
-	font-weight: 800;
-	line-height: 48%;
-	letter-spacing: -1.2%;
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.012em;
 }
 
-form {
-	display: flex;
-	flex-direction: column;
-	gap: 1rem;
+/* APP */
+header {
+    padding: 1rem;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+main {
+    padding: 1rem;
+    padding-bottom: 5rem;
+}
+
+.notes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+}
+
+.note-card {
+    text-decoration: none;
+    color: var(--foreground);
+}
+
+.note-preview {
+    aspect-ratio: 1;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+}
+
+.note-card h2 {
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.note-card time {
+    font-size: 0.75rem;
+    color: #888;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    background: var(--background);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+footer form {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 999px;
+    padding: 0.5rem 1rem;
+}
+
+footer form input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.btn-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--foreground);
+    text-decoration: none;
 }
