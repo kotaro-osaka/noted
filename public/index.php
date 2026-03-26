@@ -1,5 +1,6 @@
 <?php
-// Entry point
+require_once __DIR__ . '/../src/db.php';
+
 session_start(); // Start or resume session via session id
 if (isset($_SESSION['user_id'])) { // Check if global array's user_id is set
 	header('Location: /app.php'); // Reroute user (=> Auto log in)

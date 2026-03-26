@@ -32,3 +32,10 @@ Commits folgen dem [Conventional Commits](https://www.conventionalcommits.org/en
 1. `src/auth.php` - Login und Register Funktionen mit Argon2 Hashing
 2. `public/auth/login.php` - Login Endpoint
 3. `public/auth/register.php` - Register Endpoint
+
+### SQLite Migration - *26.3.*
+
+1. Von PostgreSQL zu SQLite gewechselt
+2. Schema angepasst: ENUMs durch CHECK Constraints ersetzt, FTS5 für Volltextsuche
+3. `db.php` angepasst: SQLite DSN, PRAGMA für Fremdschlüssel aktiviert
+4. `database/noted.db` erstellt und Schema ausgeführt
