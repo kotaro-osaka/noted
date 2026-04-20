@@ -1,7 +1,7 @@
 <?php
 session_start(); // Start or resume session via session id
 if (isset($_SESSION['user_id'])) { // Check if global array's user_id is set
-	header('Location: /app.php'); // Reroute user (=> Auto log in)
+	header('Location: /notes.php'); // Reroute user (=> Auto log in)
 	exit; // Stop PHP rendering
 }
 ?>
@@ -16,6 +16,7 @@ if (isset($_SESSION['user_id'])) { // Check if global array's user_id is set
 <body>
 	<main class="auth-container">
 		<h1>Register</h1>
+		<?= $_GET['error'] === 'empty' ? 'Please fill in all fields.' : 'Email already exists.' ?>
 		<form method="post" action="/auth/register.php">
 			<input type="email" name="email" placeholder="Email" required>
 			<input type="password" name="password" placeholder="Password" required>

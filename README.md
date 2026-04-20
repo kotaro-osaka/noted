@@ -48,5 +48,13 @@ Commits folgen dem [Conventional Commits](https://www.conventionalcommits.org/en
 
 ### Notes View - *26.3.*
 
-1. `public/notes.php` Notes Grid mit Session-Check, dynamische Notizanzahl
-2. `public/css/index.css` - Basic-Layout für Grid, Header, Footer
+1. `public/notes.php` Notiz-Grid mit Session-Check, dynamische Notizanzahl
+2. `public/css/index.css` - Layout für Grid, Header, Footer
+
+### UI & Auth Improvements - *20.4.*
+
+1. `public/logout.php` - Session zerstören, Cache-Header gesetzt
+2. `public/api/auth/check.php` - Auth-Check Endpoint für Client-seitigen Session-Check
+3. `public/js/notes.js` - Dropdown-Menü Button mit Logout
+4. `public/css/index.css` - Dropdown, Auth, Error Styles hinzugefügt
+5. Error Messages in `index.php` und `register.php` eingebaut

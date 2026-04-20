@@ -1,5 +1,7 @@
 <?php
 session_start();
+header('Cache-Control: no-store, no-cache, must-revalidate');
+header('Pragma: no-cache');
 require_once __DIR__ . '/../src/db.php';
 
 // Redirect if not logged in
@@ -22,6 +24,11 @@ $count = count($notes);
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>noted</title>
 	<link rel="stylesheet" href="/css/index.css">
+	<script>
+		fetch('/api/auth/check.php').then(r => {
+			if (r.status === 401) window.location.replace('/');
+		});
+	</script>
 </head>
 
 <body>
@@ -38,10 +45,13 @@ $count = count($notes);
 					<circle cx="19" cy="12" r="1" />
 					<circle cx="5" cy="12" r="1" />
 				</svg>
+				<div class="dropdown" id="dropdown">
+					<a href="/logout.php">Log out</a>
+				</div>
 			</button>
 		</div>
 		<h1>Notes</h1>
-		<p><?= $count ?> <?= $count === 1 ? 'Note' : 'Notes' ?></p>
+		<p class="note-count"><?= $count ?> <?= $count === 1 ? 'Note' : 'Notes' ?></p>
 	</header>
 	<main>
 		<?php if (empty($notes)): ?>
@@ -49,10 +59,18 @@ $count = count($notes);
 		<?php else: ?>
 			<div class="notes-grid">
 				<?php foreach ($notes as $note): ?>
-					<a href="/editor.php?id=<?= $note['id'] ?>" class="notes-card">
+					<a href="/editor.php?id=<?= $note['id'] ?>" class="note-card">
 						<div class="note-preview"></div>
 						<h2><?= htmlspecialchars($note['title']) ?></h2>
-						<time><?= $note['updated_at'] ?></time>
+						<?php
+						$updated = new DateTime($note['updated_at'], new DateTimeZone('UTC'));
+						$updated->setTimeZone(new DateTimeZone('Europe/Berlin'));
+						$today = new DateTime('today');
+						$display = $updated >= $today
+							? $updated->format('G:i') // G = Remove leading 0, i = min (2 digits)
+							: $updated->format('d.m.Y');
+						?>
+						<time><?= $display ?></time>
 					</a>
 				<?php endforeach; ?>
 			</div>
@@ -73,6 +91,7 @@ $count = count($notes);
 			</svg>
 		</a>
 	</footer>
+	<script src="/js/notes.js"></script>
 </body>
 
 </html>
