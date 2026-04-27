@@ -1,7 +1,7 @@
 <?php
 session_start();
-header('Cache-Control: no-store, no-cache, must-revalidate');
-header('Pragma: no-cache');
+header('Cache-Control: no-store, no-cache, must-revalidate'); // Disallow browser from saving; must ask server if page is up to date before showing; if cached version is outdated, must req server for new version
+header('Pragma: no-cache'); // Older version of `no-cache`, used for compatibility reasons
 require_once __DIR__ . '/../src/db.php';
 
 // Redirect if not logged in
@@ -25,6 +25,7 @@ $count = count($notes);
 	<title>noted</title>
 	<link rel="stylesheet" href="/css/index.css">
 	<script>
+		// Prevent from navigating back after logout
 		fetch('/api/auth/check.php').then(r => {
 			if (r.status === 401) window.location.replace('/');
 		});

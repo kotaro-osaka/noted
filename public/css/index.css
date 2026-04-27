@@ -58,9 +58,11 @@ main {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 0.75rem;
+	max-width: 600px;
 }
 
 .note-card {
+	width: 100%;
     text-align: center;
     text-decoration: none;
     color: var(--foreground);
@@ -220,4 +222,66 @@ footer form input {
 .error {
     color: #e53e3e;
     font-size: 0.875rem;
+}
+
+.menu-wrapper {
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+
+.editor-header-actions {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.editor-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem;
+}
+
+.note-actions {
+	display: flex;
+	gap: 0.5rem;
+	justify-content: center;
+	margin-top: 0.25rem;
+	font-size: 0.75rem;
+}
+
+.note-actions a:first-child {
+	color: var(--highlight);
+}
+
+.note-actions a:last-child {
+	color: #e53e3e;
+}
+
+.folders-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 0.75rem;
+}
+
+.folder-card {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.25rem;
+	text-decoration: none;
+	color: var(--foreground);
+	font-size: 0.875rem;
+}
+
+.folder-icon {
+	width: 100%;
+	aspect-ratio: 1;
+	border: 1px solid var(--border);
+	border-radius: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }

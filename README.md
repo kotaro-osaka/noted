@@ -58,3 +58,12 @@ Commits folgen dem [Conventional Commits](https://www.conventionalcommits.org/en
 3. `public/js/notes.js` - Dropdown-Menü Button mit Logout
 4. `public/css/index.css` - Dropdown, Auth, Error Styles hinzugefügt
 5. Error Messages in `index.php` und `register.php` eingebaut
+
+### Archive, Trash & Folders - *27.4.*
+
+1. `public/archive.php` - Archivierte Notizen Grid-Ansicht
+2. `public/trash.php` - Papierkorb Grid-Ansicht mit Restore und Delete
+3. `public/folders.php` - Hauptseite mit Navigation zu Notes, Archive, Trash
+4. `public/api/notes/status.php` - Notiz-Status ändern (active, archived, trashed)
+5. `public/api/notes/delete.php` - Notiz permanent löschen
+6. Editor: Dropdown zeigt nur relevante Aktionen je nach Status
