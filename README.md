@@ -71,3 +71,8 @@ Commits folgen dem [Conventional Commits](https://www.conventionalcommits.org/en
 ### Suche - *27.4.*
 
 1. `public/search.php` - Volltextsuche mit FTS5
+
+### Markdown - *27.4.*
+
+1. `public/editor.php` - Write/Preview Tabs hinzugefügt
+2. `public/js/editor.js` - Markdown Parser und Tab-Switch Logik

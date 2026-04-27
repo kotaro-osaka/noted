@@ -17,7 +17,6 @@ if ($note_id) {
 	$stmt = $pdo->prepare('SELECT * FROM notes WHERE id = ? AND user_id = ?');
 	$stmt->execute([$note_id, $_SESSION['user_id']]);
 	$note = $stmt->fetch();
-	var_dump($note['status']);
 
 	// Note not found or doesn't belong to user
 	if (!$note) {
@@ -30,7 +29,6 @@ $back = '/notes.php';
 if ($note) {
 	if ($note['status'] === 'archived') $back = '/archive.php';
 }
-var_dump($back);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -83,9 +81,14 @@ var_dump($back);
 			</button>
 		</div>
 	</header>
-	<main>
+	<main class="editor-main">
+		<div class="editor-tabs">
+			<button class="tab active" id="tab-write">Write</button>
+			<button class="tab" id="tab-preview">Preview</button>
+		</div>
 		<input type="text" id="title" placeholder="Title" value="<?= $note ? htmlspecialchars($note['title']) : '' ?>">
 		<textarea id="content" placeholder="Start writing..."><?= $note ? htmlspecialchars($note['content']) : '' ?></textarea>
+		<div id="preview"></div>
 	</main>
 	<script src="/js/editor.js"></script>
 	<script src="/js/notes.js"></script>

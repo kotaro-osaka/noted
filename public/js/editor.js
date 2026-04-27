@@ -49,7 +49,42 @@ contentInput.addEventListener(
 );
 
 confirmBtn.addEventListener("click", () => {
-	titleInput.blur();
-	contentInput.blur();
+    titleInput.blur();
+    contentInput.blur();
     confirmBtn.style.display = "none";
 });
+
+// Markdown parser
+function parseMarkdown(text) {
+    return text
+        .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") // Escape special HTML characters to prevent XSS
+        .replace(/^### (.+)$/gm, "<h3>$1</h3>") // ### Heading -> <h3>
+        .replace(/^## (.+)$/gm, "<h2>$1</h2>") // ## Heading -> <h2>
+        .replace(/^# (.+)$/gm, "<h1>$1</h1>") // # Heading -> <h1>
+        .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>") // **bold** -> <strong>
+        .replace(/\*(.+?)\*/g, "<em>$1</em>") // *italic* -> <em>
+        .replace(/`(.+?)`/g, "<code>$1</code>") // `code` -> <code>
+        .replace(/\n/g, "<br>"); // Newlines -> <br>
+}
+
+// Tab switching
+const tabWrite = document.getElementById('tab-write');
+const tabPreview = document.getElementById('tab-preview');
+const preview = document.getElementById('preview');
+
+// Switch to write mode
+tabWrite.addEventListener('click', () => {
+	tabWrite.classList.add('active');
+	tabPreview.classList.remove('active');
+	contentInput.style.display = 'block'; // Show textarea
+	preview.style.display = 'none'; // Hide preview
+});
+
+// Switch to preview mode - parse & render md
+tabPreview.addEventListener('click', () => {
+	tabPreview.classList.add('active');
+	tabWrite.classList.remove('active');
+	contentInput.style.display = 'none'; // Hide textarea
+	preview.style.display = 'block'; // Show preview
+	preview.innerHTML = parseMarkdown(contentInput.value); // Render md
+})
