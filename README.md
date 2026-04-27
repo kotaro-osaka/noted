@@ -67,3 +67,7 @@ Commits folgen dem [Conventional Commits](https://www.conventionalcommits.org/en
 4. `public/api/notes/status.php` - Notiz-Status ändern (active, archived, trashed)
 5. `public/api/notes/delete.php` - Notiz permanent löschen
 6. Editor: Dropdown zeigt nur relevante Aktionen je nach Status
+
+### Suche - *27.4.*
+
+1. `public/search.php` - Volltextsuche mit FTS5

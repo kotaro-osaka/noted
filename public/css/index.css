@@ -285,3 +285,21 @@ footer form input {
 	align-items: center;
 	justify-content: center;
 }
+
+.search-form {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	border: 1px solid var(--border);
+	border-radius: 999px;
+	padding: 0.5rem 1rem;
+	margin-bottom: 1rem;
+}
+
+.search-form input {
+	border: none;
+	outline: none;
+	width: 100%;
+	font-size: 1rem;
+	background: transparent;
+}
