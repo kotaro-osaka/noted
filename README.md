@@ -1,12 +1,16 @@
 # noted
 
-Eine browserbasierte Notiz-App, gebaut mit PHP und PostgreSQL.
+Eine browserbasierte Notiz-App, gebaut mit PHP und SQLite.
 
 ## Commit Convention
 
 Commits folgen dem [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) Standard.
 
 ## Protokoll
+
+**Figma Wireframe Mockups**
+![wireframes](docs/figma.png)
+
 
 ### Setup - *16.3.*
 
